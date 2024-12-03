@@ -25,9 +25,15 @@ def main():
     # print(sorted_left)
     # print(sorted_right)
 
-    output = (abs(l - r) for l, r in zip(sorted_left, sorted_right))
+    hash_map = {}
 
-    print('Final result:', sum(output))
+    result = []
+    for l in left:
+        if l not in hash_map:
+            hash_map[l] = right.count(l)
+        result.append(l * hash_map[l])
+
+    print('Final result:', sum(result))
 
 
 if __name__ == "__main__":
