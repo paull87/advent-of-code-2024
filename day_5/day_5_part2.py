@@ -108,8 +108,6 @@ def main():
 
     print(f"Final Result: {sum(results)}")
 
-defaultdict(None, {27: 6, 26: 2, 19: 4, 69: 0, 94: 1, 34: 3, 99: 8, 87: 5, 25: 7})
-
 
 if __name__ == "__main__":
     main()
