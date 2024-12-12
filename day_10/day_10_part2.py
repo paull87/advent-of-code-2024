@@ -77,8 +77,9 @@ def main():
     total = 0
     for s, v in routes.items():
         unique_endpoints = len(set([i[-1] for i in v]))
-        total += unique_endpoints
-        print(s, len(v), unique_endpoints)
+        endpoints = len(v)
+        total += endpoints
+        print(s, endpoints, unique_endpoints)
         # for r in v:
         #     print(r[-1])
         #     print([grid[x[0]][x[1]] for x in r])
