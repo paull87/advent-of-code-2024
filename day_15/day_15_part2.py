@@ -31,6 +31,22 @@ def parse_input(input_data):
     return grid, moves
 
 
+def explode_grid(grid):
+    explode_map = {
+        "#": ["#", "#"],
+        "O": ["[", "]"],
+        ".": [".", "."],
+        "@": ["@", "."],
+    }
+    new_grid = []
+    for r in grid:
+        new_row = []
+        for c in r:
+            new_row += explode_map[c]
+        new_grid.append(new_row)
+    return new_grid
+
+
 def visualise_grid(grid):
     for g in grid:
         print("".join([str(x) for x in g]))
@@ -122,16 +138,19 @@ def calculate_gps(grid):
                 total += (100 * y) + x
     return total
 
+
 def main():
     grid, moves = parse_input(get_input_data())
     visualise_grid(grid)
-    print(moves)
-    x, y = find_robot_start(grid)
-    for move in moves:
-        print(x, y, move)
-        x, y = move_robot(grid, (x, y), move)
-        # visualise_grid(grid)
-    print("Total:", calculate_gps(grid))
+    grid = explode_grid(grid)
+    visualise_grid(grid)
+    # print(moves)
+    # x, y = find_robot_start(grid)
+    # for move in moves:
+    #     print(x, y, move)
+    #     x, y = move_robot(grid, (x, y), move)
+    #     # visualise_grid(grid)
+    # print("Total:", calculate_gps(grid))
 
 
 if __name__ == '__main__':
